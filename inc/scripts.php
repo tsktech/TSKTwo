@@ -15,14 +15,14 @@ add_action( 'init', 'tsktwo_include_custom_jquery' );
  */
 function tsktwo_scripts() {
 	wp_enqueue_style( 'tsktwo-style-min', get_template_directory_uri () . '/sass/style.min.css' );
-	wp_enqueue_style( 'tsktwo-mdc-min', 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css');
-	wp_enqueue_style( 'tsktwo-google-fonts', 'https://fonts.googleapis.com/icon?family=Material+Icons', false );
+	// wp_enqueue_style( 'tsktwo-mdc-min', 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css');
+	// wp_enqueue_style( 'tsktwo-google-fonts', 'https://fonts.googleapis.com/icon?family=Material+Icons', false );
 
 
 	wp_register_script( 'popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js', false, '', true);
 	wp_enqueue_script('popper');
-	wp_register_script( 'mdc-js', 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js', false, '', true);
-	wp_enqueue_script('mdc-js');
+	// wp_register_script( 'mdc-js', 'https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js', false, '', true);
+	// wp_enqueue_script('mdc-js');
 	wp_enqueue_script( 'tsktwo-js', get_template_directory_uri() . '/dist/js/tsktwo.js', array('jquery'), '20190429' , true);
 
 

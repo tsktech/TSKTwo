@@ -23,7 +23,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-# Normalize
 # Typography
 # Elements
 # Forms
@@ -48,7 +47,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
-@import "normalize";
+// @import "normalize";
 
 /*--------------------------------------------------------------
 # Typography
@@ -109,3 +108,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # BoostStrap 4.3.1
 --------------------------------------------------------------*/
 @import "bootstrap/tsk-bootstrap";
+
+/*--------------------------------------------------------------
+# Material for Web by Google ... could not get it to work
+--------------------------------------------------------------*/
+// @import "material-web/tsk-mdc";

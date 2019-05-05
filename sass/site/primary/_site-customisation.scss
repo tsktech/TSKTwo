@@ -1,0 +1,39 @@
+.site-info {
+	text-align: center;
+}
+
+.site-title {
+		margin:10px 0 0 -2px;
+		padding: 0;
+		line-height: 1em;
+		font-size: 1.875rem;
+		font-weight: 700;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		color: inherit;
+		a {
+			margin: 0;
+			&:visited {
+				color: inherit;
+			}
+			&:hover {
+				text-decoration: none;
+			}
+		}
+}
+
+// a {color:#FF0000;}      /* unvisited link */
+// a:visited {color:#00FF00;}  /* visited link */
+// a:hover {color:#FF00FF;}  /* mouse over link */
+// a:active {color:#0000FF;}  /* selected link */
+
+.site-description {
+	font-size: 1rem;
+	margin: 10px 0 0;
+	letter-spacing: 1px;
+}
+
+#masthead {
+	min-height: 90px;
+	margin-bottom: 30px;
+}
