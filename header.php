@@ -22,7 +22,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<<!-- customistation of header !-->
+	<!-- customistation of header !-->
 	<?php
 		$navbarSticky = (get_theme_mod( 'sticky_setting' ) == true ? ' fixed-top' : null);
 		$navbarColorSch = get_theme_mod( 'navbar_color' );

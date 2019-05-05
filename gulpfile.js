@@ -37,12 +37,25 @@ var jsSRC = [
     js + 'bootstrap.js',
     js + 'bootstrap-hover.js',
     js + 'nav-scroll.js',
+    js + 'prism.js',
     js + 'skip-link-focus-fix.js'
 ];
 
-// nodeDir + 'material-design-lite/material.min.js'
 
-//	js + 'tether.min.js', is nolonger used
+/*
+    js + 'bootstrap.bundle.js',
+    js + 'bootstrap-hover.js',
+    js + 'nav-scroll.js',
+    js + 'prism.js',
+    js + 'resizeSensor.js',
+    js + 'sticky-sidebar.js',
+    js + 'sticky-sb.js',
+    js + 'skip-link-focus-fix.js'
+];*/
+
+
+// nodeDir + 'material-design-lite/material.min.js'
+//	js + 'tether.min.js', is no longer used
 //  js + 'bootstrap.bundle.js',
 //  js + 'prism.js',
 //	js + 'resizeSensor.js',
@@ -54,14 +67,17 @@ var cssSRC =  [
   // root + 'src/css/bootstrap.css',
   // nodeDir + material-design-lite/material.min.css
   root + 'fonts/font-awesome/css/all.css',
+  root + 'src/css/prism.css',
   root + 'style.css'
 ];
 
-// root + 'src/css/all.css',
-// root + 'src/css/prism.css',
-// // root + 'src/css/bootstrap.css',
-//  root + 'fonts/font-awesome/css/all.css',
-  //root + 'style.css'
+// Used to concat the files in a specific order.
+
+/*
+root + 'src/css/bootstrap.css',
+root + 'src/css/all.css',
+root + 'src/css/prism.css',
+root + 'style.css',*/
 // nodeDir + 'bootstrap/scss/bootstrap.scss',
 
 var imgSRC 	= root + 'src/images/*',
