@@ -44,7 +44,8 @@ if ( ! function_exists( 'tsktwo_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'primary' => esc_html__( 'Primary', 'tsktwo' ),
+			'primary' => esc_html__( 'Primary Menu', 'tsktwo' ),
+			'secondary' => __( 'Secondary Menu', 'tsktwo' ),
 		) );
 
 		/*

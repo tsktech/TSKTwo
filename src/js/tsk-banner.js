@@ -8,23 +8,31 @@ $(document).ready(function() {
       // console.log($(window).scrollTop());
       if (!jQuery(this).hasClass("fixed-top")) {
         if ($(window).scrollTop() > mastheadHeight) {
-          $(this).addClass('fixed-top');
-          if ($('body').hasClass('logged-in')) {
-            $(this).addClass(marginTop);
-          }
+          // setTimeout(function() {
+            $(this).addClass('fixed-top rounded-bottom shadow-sm');
+            if ($('body').hasClass('logged-in')) {
+              $(this).addClass(marginTop);
+            }
+          // }, 1000);
+
         }
       }
       if (jQuery(this).hasClass("fixed-top")) {
         if ($(window).scrollTop() < mastheadHeight) {
-          $(this).removeClass('fixed-top');
-          if ($('body').hasClass('logged-in')) {
-            $(this).removeClass(marginTop);
-          }
+          // setTimeout(function() {
+            $(this).removeClass('fixed-top rounded-bottom shadow-sm');
+            if ($('body').hasClass('logged-in')) {
+              $(this).removeClass(marginTop);
+            }
+          // }, 400);
+
         }
       }
     });
   } // end of functio
-
+/*setTimeout(function() {
+    $('.main-nav-ul').addClass('nav-slide'); // line 57 in jquery.sticky.js
+}, 100);*/
 
   $(window).scroll(function () {
       //if you hard code, then use console
@@ -40,12 +48,11 @@ $(document).ready(function() {
     /*var windowHeight = $(window).height();*/
     /*var windowScrollPosTop = $(window).scrollTop();*/
     /*var windowScrollPosBottom = windowHeight + windowScrollPosTop;*/
-    if (!jQuery("#menu").hasClass("tsk-fixed-top")) {
+    if (! jQuery("#menu").hasClass("tsk-fixed-top")) {
         windowHeight = $(window).height();
         windowScrollPosTop = $(window).scrollTop();
         windowScrollPosBottom = windowHeight + windowScrollPosTop;
         $("#menu").fixedNavbarOnScroll(85, 'mt-3');
-
     }
   });
 

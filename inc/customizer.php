@@ -90,6 +90,19 @@ if ( class_exists('Kirki') ) {
 	] );
 	Kirki::add_field( 'tsktwo_theme', [
 		'type'        => 'color-palette',
+		'settings'    => 'header_color',
+		'label'       => esc_html__( 'Header Color Scheme', 'tsktwo' ),
+		'description' => esc_html__( 'Customise the Header Color', 'tsktwo' ),
+		'section'     => 'navbar_section',
+		'default'     => '#007BFF',
+		'choices'     => [
+			'colors' => [ '#007BFF', '#6B757D', '#29A645', '#DC3545', '#FEC105', '#17A2B8', '#F8F9FA', '#343A40' ],
+			'style'  => 'round',
+			'size'   => 25,
+		],
+	] );
+	Kirki::add_field( 'tsktwo_theme', [
+		'type'        => 'color-palette',
 		'settings'    => 'navbar_color',
 		'label'       => esc_html__( 'Navbar Color Scheme', 'tsktwo' ),
 		'description' => esc_html__( 'Customise the Navbar Color & Menu Text', 'tsktwo' ),

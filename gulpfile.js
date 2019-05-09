@@ -35,7 +35,7 @@ var PHPWatchFiles  = root + '**/*.php',
 // Used to concat the files in a specific order.
 var jsSRC = [
     js + 'bootstrap.js',
-    js + 'bootstrap-hover.js',
+    js + 'bootstrap-hover-two.js',
     js + 'nav-scroll.js',
     js + 'tsk-banner.js',
     js + 'prism.js',
