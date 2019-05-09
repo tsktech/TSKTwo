@@ -19,6 +19,8 @@
 				<?php
 				/* translators: %s: CMS name, i.e. WordPress. */
 				printf( esc_html__( 'Proudly powered by %s', 'tsktwo' ), 'WordPress' );
+				// var_dump(is_admin());
+				// var_dump(is_admin_bar_showing());
 				?>
 			</a>
 			<span class="sep"> | </span>

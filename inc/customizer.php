@@ -58,7 +58,7 @@ add_action( 'customize_preview_init', 'tsktwo_customize_preview_js' );
  * Theme Customisation
  */
 if ( class_exists('Kirki') ) {
-	Kirki::add_config( 'tskone_theme', array(
+	Kirki::add_config( 'tsktwo_theme', array(
 		'capability'    => 'edit_theme_options',
 		'option_type'   => 'theme_mod',
 	) );
@@ -68,20 +68,27 @@ if ( class_exists('Kirki') ) {
 	    'description' => esc_html__( 'Customisation of theme', 'tsktwo' ),
 	) );
 	Kirki::add_section( 'navbar_section', array(
-	    'title'          => esc_html__( 'Navbar Section', 'tsktwo' ),
-	    'description'    => esc_html__( 'change the look & feel of header navbar.', 'tsktwo' ),
+	    'title'          => esc_html__( 'Header and Navbar Section', 'tsktwo' ),
+	    'description'    => esc_html__( 'change the look & feel of header and navbar.', 'tsktwo' ),
 	    'panel'          => 'theme_mod',
 	    'priority'       => 160,
 	) );
-	Kirki::add_field( 'tskone_theme', [
-		'type'        => 'checkbox',
-		'settings'    => 'sticky_setting',
-		'label'       => esc_html__( 'Sticky Header', 'tsktwo' ),
-		'description' => esc_html__( 'Navbar scrolls with the page until it reaches the top, then stays there)', 'tsktwo' ),
+	Kirki::add_field( 'tsktwo_theme', [
+		'type'        => 'select',
+		'settings'    => 'header_layout',
+		'label'       => esc_html__( 'Select Header', 'tsktwo' ),
 		'section'     => 'navbar_section',
-		'default'     => false,
+		'default'     => 'headerone',
+		'priority'    => 10,
+		'multiple'    => 1,
+		'choices'     => [
+			'headerone'   => esc_html__( 'Header One', 'tsktwo' ),
+			'headertwo'   => esc_html__( 'Header Two', 'tsktwo' ),
+			'headerthree' => esc_html__( 'Header Three', 'tsktwo' ),
+			'headerfour'  => esc_html__( 'No Header Sticky Navbar', 'tsktwo' ),
+		],
 	] );
-	Kirki::add_field( 'tskone_theme', [
+	Kirki::add_field( 'tsktwo_theme', [
 		'type'        => 'color-palette',
 		'settings'    => 'navbar_color',
 		'label'       => esc_html__( 'Navbar Color Scheme', 'tsktwo' ),
@@ -94,6 +101,13 @@ if ( class_exists('Kirki') ) {
 			'size'   => 25,
 		],
 	] );
-
+	/*Kirki::add_field( 'tsktwo_theme', [
+		'type'        => 'checkbox',
+		'settings'    => 'sticky_setting',
+		'label'       => esc_html__( 'Sticky Header', 'tsktwo' ),
+		'description' => esc_html__( 'Navbar scrolls with the page until it reaches the top, then stays there)', 'tsktwo' ),
+		'section'     => 'navbar_section',
+		'default'     => false,
+	] );*/
 
 }

@@ -37,6 +37,7 @@ var jsSRC = [
     js + 'bootstrap.js',
     js + 'bootstrap-hover.js',
     js + 'nav-scroll.js',
+    js + 'tsk-banner.js',
     js + 'prism.js',
     js + 'skip-link-focus-fix.js'
 ];
@@ -67,7 +68,7 @@ var cssSRC =  [
   // root + 'src/css/bootstrap.css',
   // nodeDir + material-design-lite/material.min.css
   root + 'fonts/font-awesome/css/all.css',
-  root + 'src/css/prism.css',
+  // root + 'src/css/prism.css',
   root + 'style.css'
 ];
 
@@ -162,7 +163,7 @@ function zipPackage (){
 function watch() {
   browserSync.init({
     open: 'external',
-    proxy: 'http://localhost:8888/mydev',
+    proxy: 'http://localhost:8888/wpDev/mydevnw',
     port: 8090,
 	browser: 'google chrome'
   });

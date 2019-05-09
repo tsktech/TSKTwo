@@ -24,7 +24,7 @@
 <div id="page" class="site">
 	<!-- customistation of header !-->
 	<?php
-		$navbarSticky = (get_theme_mod( 'sticky_setting' ) == true ? ' fixed-top' : null);
+		/*$navbarSticky = (get_theme_mod( 'sticky_setting' ) == true ? ' fixed-top' : null);
 		$navbarColorSch = get_theme_mod( 'navbar_color' );
 		switch ($navbarColorSch) {
 	    case '#6B757D':
@@ -58,53 +58,36 @@
 	    default:
 	    	$navbarColor = 'navbar-dark';
 	        $navbarBackground = 'bg-primary';
-		}
-		// var_dump($headerSticky);
+		}*/
+		$headerlayout = get_theme_mod('header_layout');
+
+
+		// var_dump($headerlayout);
+		// if (is_admin()) ? 'mt-3' ;'';
 	?>
+<!-- 	<form method="post" action="header-one.php">
+			<input type="hidden" name="navbarSticky" value=<?php $navbarSticky; ?>>
+		    <input type="submit">
+		    <input type="hidden" name="navbarColor" value=<?php $navbarColor; ?>>
+		    <input type="submit">
+		    <input type="hidden" name="navbarBackground" value=<?php $navbarBackground; ?>>
+		    <input type="submit">
+	</form> -->
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'tsktwo' ); ?></a>
 	<div class="container-fluid">
-		<header id="masthead" class="site-header">
-			<nav id="menu" class="navbar navbar-expand-lg<?php echo $navbarSticky; echo " " . $navbarColor . " "; echo $navbarBackground?>" role="navigation" >
-				<div class="container">
-					<div class="site-branding navbar-brand">
-						<?php
-						the_custom_logo();
-						if ( is_front_page() && is_home() ) :
-							?>
-							<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-							<?php
-						else :
-							?>
-							<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-							<?php
-						endif;
-						$tsktwo_description = get_bloginfo( 'description', 'display' );
-						if ( $tsktwo_description || is_customize_preview() ) :
-							?>
-							<p class="site-description"><?php echo $tsktwo_description; /* WPCS: xss ok. */ ?></p>
-						<?php endif; ?>
-					</div><!-- .site-branding -->
-
-					<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#bs4navbar" aria-controls="bs4navbar" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
-					<!-- https://developer.wordpress.org/reference/functions/wp_nav_menu/-->
-					<!-- 'menu_id'			=> 'primary-1', -->
-					<?php
-						wp_nav_menu([
-							'menu'				=> 'primary',
-							'menu_class'		=> 'navbar-nav ml-auto',
-							'container'         => 'div',
-							'container_class'   => 'collapse navbar-collapse',
-							'container_id'      => 'bs4navbar',
-							'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-							'depth'             => 2, // 1 = no dropdowns, 2 = with dropdowns.
-							'walker'            => new WP_Bootstrap_Navwalker(),
-							'theme_location'    => 'primary' // registered with register_nav_menu()
-						]);
-					?>
-				</div><!-- .container	-->
-			</nav><!-- nav #menu -->
-		</header><!-- #masthead -->
+		<?php
+				// $headerlayout = get_theme_mod('storevilla_pro_header_type','header_layout');
+				// $headerlayout = 'headerone';
+				if($headerlayout == 'headerone'){
+					// var_dump('header-ones.php');
+					get_template_part('header/header', 'one');
+				}else if($headerlayout == 'headertwo'){
+					get_template_part('header/header', 'two');
+				}else if($headerlayout == 'headerthree'){
+					get_template_part('header/header', 'three');
+				}else{
+					get_template_part('header/header', 'four');
+				}
+		?>
 	</div><!-- .container-fluid -->
 	<div id="content" class="site-content container">
