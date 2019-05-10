@@ -2,6 +2,7 @@
 /**
  * TSKTwo Theme Customizer
  *
+ * http://ottopress.com/2015/whats-new-with-the-customizer/
  * @package TSKTwo
  */
 
@@ -89,6 +90,28 @@ if ( class_exists('Kirki') ) {
 		],
 	] );
 	Kirki::add_field( 'tsktwo_theme', [
+		'active_callback' => 'headerthree_callback',
+		'type'     => 'text',
+		'settings' => 'topnav_email',
+		'label'    => esc_html__( 'Email ID for Header Three', 'tsktwo' ),
+		'section'  => 'navbar_section',
+		'default'  => esc_html__( 'Email Id for Support', 'tsktwo' ),
+		'priority' => 10,
+		'sanitize_callback' => 'tsktwo_sanitize_email',
+	] );
+	Kirki::add_field( 'tsktwo_theme', [
+		'active_callback' => 'headerthree_callback',
+		'type'     => 'text',
+		'settings' => 'topnav_mobil',
+		'label'    => esc_html__( 'WhatsApp Number for Header Three', 'tsktwo' ),
+		'section'  => 'navbar_section',
+		'default'  => esc_html__( 'WhatsApp Mobil for Support', 'tsktwo' ),
+		'priority' => 10,
+		/*'sanitize_callback' => 'tsktwo_sanitize_phone',*/
+	] );
+
+	Kirki::add_field( 'tsktwo_theme', [
+		'active_callback' => 'headerfour_callback',
 		'type'        => 'color-palette',
 		'settings'    => 'header_color',
 		'label'       => esc_html__( 'Header Color Scheme', 'tsktwo' ),
@@ -123,4 +146,40 @@ if ( class_exists('Kirki') ) {
 		'default'     => false,
 	] );*/
 
+
+
 }
+
+function tsktwo_sanitize_email ( $value ) {
+	// return "not so nice";
+	if ( is_email( $value ) ) {
+		return sanitize_email( $value ) ;
+	} else {
+		return esc_html__( 'not a valid Email ID', 'tsktwo' );
+	}
+}
+function tsktwo_sanitize_phone ( $value ) {
+	// return "not so nice";
+/*	if ( is_email( $value ) ) {
+		return sanitize_email( $value ) ;
+	} else {
+		return esc_html__( 'not a valid Email ID', 'tsktwo' );
+	}*/
+}
+function headerthree_callback( $control ) {
+   if ( $control->manager->get_setting('header_layout')->value() == 'headerthree' ) {
+      return true;
+   } else {
+      return false;
+   }
+}
+
+function headerfour_callback( $control ) {
+   if ( $control->manager->get_setting('header_layout')->value() !== 'headerfour' ) {
+      return true;
+   } else {
+      return false;
+   }
+}
+
+

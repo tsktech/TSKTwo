@@ -86,11 +86,14 @@
 
 
 <header id="masthead" class="site-header">
-    <nav id="menu" class="navbar navbar-expand-lg<?php echo $navbarSticky; echo " " . $navbarColor . " "; echo $navbarBackground;?> navbar-new-tag pt-2 pt-md-0" role="navigation" >
+    <nav id="tsk-top-nav" class="navbar navbar-expand-lg<?php echo $navbarSticky; echo " " . $navbarColor . " "; echo $navbarBackground;?> navbar-new-tag pt-2 pt-md-0" role="navigation" >
         <div class="container">
+
             <div class="site-branding navbar-brand">
-                <p class="site-description">Laborum dolor culpa mollit elit id ex.</p>
+                <p class="tsk-emailaddress"><span class='tsk-label'>Email ID:</span> <span><?php echo get_theme_mod('topnav_email'); ?></span>
+                <br/><span class='tsk-label'>whatsApp:</span><span><?php echo get_theme_mod('topnav_mobil'); ?></span></p>
             </div><!-- .site-branding navbar-bran -->
+
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#bs4navbar-top" aria-controls="bs4navbar-top" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -110,7 +113,7 @@
                 ]);
             ?>
         </div> <!-- .container -->
-    </nav> <!-- nav #menu  -->
+    </nav> <!-- nav #tsk-top-nav  -->
     <nav id="secondary" class="navbar navbar-expand-lg <?php echo $headerColor . " "; echo $headerBackground;?> navbar-new-top" role="navigation" >
         <div class="container">
             <div class="site-branding navbar-brand">
@@ -157,7 +160,7 @@
                 ]);
             ?> -->
         </div><!-- .container   -->
-    </nav><!-- nav #menu -->
+    </nav><!-- nav #secondary -->
     <!-- </div> .row
     <div class="row"> -->
     <div class="container">

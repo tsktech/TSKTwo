@@ -13,7 +13,7 @@
 
 		// Option Four = sticky Navbar No Header
 		$navbarSticky = ' fixed-top tsk-fixed-top';
-		$minH = '60px';
+		$minH = '80px';
 		if (is_admin_bar_showing()) {
 			$navbarSticky .= ' mt-3';
 		}

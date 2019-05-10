@@ -28,13 +28,29 @@
 // a:active {color:#0000FF;}  /* selected link */
 
 .site-description {
-	font-size: 1rem;
 	margin: 10px 0 0;
-	letter-spacing: 1px;
+	@include text-spacing;
+	/*font-size: 1rem;
+	letter-spacing: 1px;*/
+}
+
+.tsk-emailaddress {
+	@include text-spacing;
+	margin: 10px 0 0;
+	text-transform: uppercase;
+	line-height: 1em;
+	font-size: 0.75rem;
+	font-weight: 700;
+}
+
+.tsk-label {
+	display: inline-block;
+	width: 25%;
+	margin-right: 30px;
 }
 
 #masthead {
-	min-height: 150px;
+	min-height: 80px;
 	margin-bottom: 30px;
 }
 /*for fixed-top nav*/
