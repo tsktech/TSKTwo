@@ -15,7 +15,7 @@
 		$navbarSticky = ' fixed-top tsk-fixed-top';
 		$minH = '80px';
 		if (is_admin_bar_showing()) {
-			$navbarSticky .= ' mt-3';
+			$navbarSticky .= ' mt-4';
 		}
 		$navbarColorSch = get_theme_mod( 'navbar_color' );
 		switch ($navbarColorSch) {

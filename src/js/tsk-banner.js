@@ -52,7 +52,11 @@ $(document).ready(function() {
         windowHeight = $(window).height();
         windowScrollPosTop = $(window).scrollTop();
         windowScrollPosBottom = windowHeight + windowScrollPosTop;
-        $("#menu").fixedNavbarOnScroll(85, 'mt-3');
+        if (! jQuery("#masthead").hasClass("navbar-new-tag")) {
+          $("#menu").fixedNavbarOnScroll(110, 'mt-4');
+        } else {
+          $("#menu").fixedNavbarOnScroll(85, '');
+        }
     }
   });
 

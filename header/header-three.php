@@ -1,9 +1,13 @@
 <?php
         // $navbarSticky = ' fixed-top tsk-fixed-top';
         $navbarSticky = null;
-        $minH = '60px';
+        $navbarStickyTop = null;
+        $minH = '150px';
         if (is_admin_bar_showing()) {
-            $navbarSticky .= ' mt-3';
+            $navbarSticky .= null;
+        }
+        if (is_admin_bar_showing()) {
+            $navbarStickyTop = null;
         }
         $navbarColorSch = get_theme_mod( 'navbar_color' );
         switch ($navbarColorSch) {
@@ -86,7 +90,7 @@
 
 
 <header id="masthead" class="site-header">
-    <nav id="tsk-top-nav" class="navbar navbar-expand-lg<?php echo $navbarSticky; echo " " . $navbarColor . " "; echo $navbarBackground;?> navbar-new-tag pt-2 pt-md-0" role="navigation" >
+    <nav id="tsk-top-nav" class="navbar navbar-expand-lg<?php echo $navbarStickyTop; echo " " . $navbarColor . " "; echo $navbarBackground;?> navbar-new-tag pt-2 pt-md-0" role="navigation" >
         <div class="container">
 
             <div class="site-branding navbar-brand">
@@ -167,7 +171,7 @@
         <span class="divider"></span>
     </div><!-- .container -->
 
-    <nav id="menu" class="navbar navbar-expand-lg<?php echo $navbarSticky; echo " " . $navbarColor . " "; echo $navbarBackground;?> navbar-new-bottom pt-2 pt-md-0" role="navigation" >
+    <nav id="menu" class="navbar navbar-expand-lg<?php echo $navbarSticky; echo " " . $navbarColor . " "; echo $navbarBackground;?> navbar-new-bottom" role="navigation" >
         <div class="container">
             <!-- <?php the_custom_logo(); ?> -->
             <!-- <a>Hello</a> -->

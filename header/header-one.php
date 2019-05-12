@@ -10,6 +10,11 @@
 		}*/
 		// var_dump('header-one.php');
 		$navbarSticky = null;
+		$minH = '80px';
+		if (is_admin_bar_showing()) {
+			$navbarSticky .= ' mt-3';
+		}
+
 		$navbarColorSch = get_theme_mod( 'navbar_color' );
 		switch ($navbarColorSch) {
 	    case '#6B757D':
