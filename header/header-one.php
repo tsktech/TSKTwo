@@ -10,7 +10,7 @@
 		}*/
 		// var_dump('header-one.php');
 		$navbarSticky = null;
-		$minH = '80px';
+		$minH = '200px';
 		if (is_admin_bar_showing()) {
 			$navbarSticky .= ' mt-3';
 		}

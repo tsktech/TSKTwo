@@ -9,7 +9,7 @@ $(document).ready(function() {
       if (!jQuery(this).hasClass("fixed-top")) {
         if ($(window).scrollTop() > mastheadHeight) {
           // setTimeout(function() {
-            $(this).addClass('fixed-top rounded-bottom shadow-sm');
+            $(this).addClass('fixed-top rounded-bottom tsk-shadow-sm');
             if ($('body').hasClass('logged-in')) {
               $(this).addClass(marginTop);
             }
@@ -20,7 +20,7 @@ $(document).ready(function() {
       if (jQuery(this).hasClass("fixed-top")) {
         if ($(window).scrollTop() < mastheadHeight) {
           // setTimeout(function() {
-            $(this).removeClass('fixed-top rounded-bottom shadow-sm');
+            $(this).removeClass('fixed-top rounded-bottom tsk-shadow-sm');
             if ($('body').hasClass('logged-in')) {
               $(this).removeClass(marginTop);
             }

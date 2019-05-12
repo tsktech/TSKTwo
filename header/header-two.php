@@ -1,7 +1,7 @@
 <?php
         // $navbarSticky = ' fixed-top tsk-fixed-top';
         $navbarSticky = null;
-        $minH = '60px';
+        $minH = '160px';
         if (is_admin_bar_showing()) {
             $navbarSticky = null;
         }
@@ -85,7 +85,7 @@
 ?>
 
 
-<header id="masthead" class="site-header">
+<header id="masthead" class="site-header" style="min-height:<?php echo $minH; ?>">
     <!-- <div class="row"> -->
     <nav id="secondary" class="navbar navbar-expand-lg <?php echo $headerColor . " "; echo $headerBackground;?> navbar-new-top" role="navigation" >
         <div class="container">
