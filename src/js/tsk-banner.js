@@ -3,7 +3,8 @@ $(document).ready(function() {
   var windowScrollPosTop = $(window).scrollTop();
   var windowScrollPosBottom = windowHeight + windowScrollPosTop;
 
-  jQuery.fn.fixedNavbarOnScroll = function (mastheadHeight, marginTop) {
+  // jQuery.fn.fixedNavbarOnScroll = function (mastheadHeight, marginTop) {
+  jQuery.fn.fixedNavbarOnScroll = function (mastheadHeight) {
     return this.each(function() {
       // console.log($(window).scrollTop());
       if (!jQuery(this).hasClass("fixed-top")) {
@@ -53,9 +54,10 @@ $(document).ready(function() {
         windowScrollPosTop = $(window).scrollTop();
         windowScrollPosBottom = windowHeight + windowScrollPosTop;
         if (! jQuery("#masthead").hasClass("navbar-new-tag")) {
-          $("#menu").fixedNavbarOnScroll(110, 'mt-4');
+          // $("#menu").fixedNavbarOnScroll(110, '');
+          $("#menu").fixedNavbarOnScroll(110);
         } else {
-          $("#menu").fixedNavbarOnScroll(85, '');
+          $("#menu").fixedNavbarOnScroll(85;
         }
     }
   });

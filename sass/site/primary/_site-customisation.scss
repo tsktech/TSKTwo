@@ -50,7 +50,10 @@
 }
 
 #masthead {
-	min-height: 80px;
+	// min-height: 80px;
 	margin-bottom: 30px;
 }
 /*for fixed-top nav*/
+.fixed-top {
+	@include admin-sticky-fix;
+}

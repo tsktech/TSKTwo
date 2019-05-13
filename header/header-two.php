@@ -1,10 +1,4 @@
 <?php
-        // $navbarSticky = ' fixed-top tsk-fixed-top';
-        $navbarSticky = null;
-        $minH = '160px';
-        if (is_admin_bar_showing()) {
-            $navbarSticky = null;
-        }
         $navbarColorSch = get_theme_mod( 'navbar_color' );
         switch ($navbarColorSch) {
         case '#6B757D':
@@ -85,9 +79,9 @@
 ?>
 
 
-<header id="masthead" class="site-header" style="min-height:<?php echo $minH; ?>">
+<header id="masthead" class="site-header">
     <!-- <div class="row"> -->
-    <nav id="secondary" class="navbar navbar-expand-lg <?php echo $headerColor . " "; echo $headerBackground;?> navbar-new-top" role="navigation" >
+    <div id="secondary" class="navbar navbar-expand-lg <?php echo $headerColor . " "; echo $headerBackground;?> navbar-new-top" role="navigation" >
         <div class="container">
             <div class="site-branding navbar-brand">
                 <?php
@@ -113,56 +107,36 @@
                   <button class="btn <?php echo $searchBtn; ?> my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </div><!-- .div btnSearch -->
-
-            <!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#bs4navbar" aria-controls="bs4navbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button> -->
-            <!-- https://developer.wordpress.org/reference/functions/wp_nav_menu/-->
-            <!-- 'menu_id'          => 'primary-1', -->
-           <!--  <?php
-                wp_nav_menu([
-                    'menu'              => 'secondary',
-                    'menu_class'        => 'navbar-nav ml-auto',
-                    'container'         => 'div',
-                    'container_class'   => 'collapse navbar-collapse',
-                    'container_id'      => 'bs4navbar-top',
-                    'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-                    'depth'             => 2, // 1 = no dropdowns, 2 = with dropdowns.
-                    'walker'            => new WP_Bootstrap_Navwalker(),
-                    'theme_location'    => 'secondary' // registered with register_nav_menu()
-                ]);
-            ?> -->
         </div><!-- .container   -->
-    </nav><!-- nav #menu -->
+    </div><!-- div #secondary -->
     <!-- </div> .row
     <div class="row"> -->
-    <div class="container">
-        <span class="divider"></span>
-    </div><!-- .container -->
 
-    <nav id="menu" class="navbar navbar-expand-lg<?php echo $navbarSticky; echo " " . $navbarColor . " "; echo $navbarBackground;?> navbar-new-bottom" role="navigation" >
-        <div class="container">
-            <!-- <?php the_custom_logo(); ?> -->
-            <!-- <a>Hello</a> -->
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#bs4navbar" aria-controls="bs4navbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!-- https://developer.wordpress.org/reference/functions/wp_nav_menu/-->
-            <!-- 'menu_id'          => 'primary-1', -->
-            <?php
-                wp_nav_menu([
-                    'menu'              => 'primary',
-                    'menu_class'        => 'navbar-nav mr-auto ml-0',
-                    'container'         => 'div',
-                    'container_class'   => 'collapse navbar-collapse',
-                    'container_id'      => 'bs4navbar',
-                    'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-                    'depth'             => 2, // 1 = no dropdowns, 2 = with dropdowns.
-                    'walker'            => new WP_Bootstrap_Navwalker(),
-                    'theme_location'    => 'primary' // registered with register_nav_menu()
-                ]);
-            ?>
-        </div><!-- .container   -->
-    </nav><!-- nav #menu -->
+    <div class="navbar-placeholder">
+        <nav id="menu" class="navbar navbar-expand-lg<?php echo $navbarSticky; echo " " . $navbarColor . " "; echo $navbarBackground;?>" role="navigation" >
+            <div class="container">
+                <!-- <?php the_custom_logo(); ?> -->
+                <!-- <a>Hello</a> -->
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#bs4navbar" aria-controls="bs4navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- https://developer.wordpress.org/reference/functions/wp_nav_menu/-->
+                <!-- 'menu_id'          => 'primary-1', -->
+                <?php
+                    wp_nav_menu([
+                        'menu'              => 'primary',
+                        'menu_class'        => 'navbar-nav mr-auto ml-0',
+                        'container'         => 'div',
+                        'container_class'   => 'collapse navbar-collapse',
+                        'container_id'      => 'bs4navbar',
+                        'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                        'depth'             => 2, // 1 = no dropdowns, 2 = with dropdowns.
+                        'walker'            => new WP_Bootstrap_Navwalker(),
+                        'theme_location'    => 'primary' // registered with register_nav_menu()
+                    ]);
+                ?>
+            </div><!-- .container   -->
+        </nav><!-- nav #menu -->
+    </div><!-- .navbar-placeholder -->
 <!-- </div .row -->
 </header><!-- header -->

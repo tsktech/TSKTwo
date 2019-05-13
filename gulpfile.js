@@ -37,7 +37,7 @@ var jsSRC = [
     js + 'bootstrap.js',
     js + 'bootstrap-hover-two.js',
     js + 'nav-scroll.js',
-    js + 'tsk-banner.js',
+    js + 'tsk-stickynav.js',
     js + 'prism.js',
     js + 'skip-link-focus-fix.js'
 ];
