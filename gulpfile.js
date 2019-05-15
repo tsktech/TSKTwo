@@ -8,6 +8,7 @@ var gulp     	 = require( 'gulp' ),
 	autoprefixer = require( 'gulp-autoprefixer' ),
 	browserSync  = require( 'browser-sync' ).create(),
 	reload       = browserSync.reload,
+  plumber      = require( 'gulp-plumber'),
 	sass         = require( 'gulp-sass' ),
 	cleanCSS     = require( 'gulp-clean-css' ),
 	sourcemaps   = require( 'gulp-sourcemaps' ),
@@ -108,6 +109,16 @@ var zipSRC 			= [
 	'!zipFile'
 ];
 
+/*var errorlog = function errorsLog(error) {
+  console.error.bind(error);
+  this.emit('end');
+}*/
+
+var onError = function( err ) {
+  console.log( 'An error occured:', err.message );
+  this.emit('end');
+}
+
 
 // return gulp.src(['node_modules/bootstrap/scss/bootstrap.scss', 'src/scss/*.scss'])
 // /node_modules/material-design-lite/material.min.js
@@ -117,27 +128,36 @@ function css() {
   .pipe(sourcemaps.init({loadMaps: true}))
   .pipe(sass({
     outputStyle: 'expanded'
-  }).on('error', sass.logError))
+  }).on('error', onError))
   .pipe(autoprefixer('last 2 versions'))
   .pipe(sourcemaps.write())
   .pipe(lineec())
   .pipe(gulp.dest(root));
 }
 
+// .pipe(plumber())
+// sass.logError))
+// .pipe(sass({
+//    outputStyle: 'expanded'
+//  }).on('error', sass.logError))
+
 function concatCSS() {
   return gulp.src(cssSRC)
   .pipe(sourcemaps.init({loadMaps: true, largeFile: true}))
-  .pipe(concat('style.min.css'))
+  .pipe(concat('style.min.css').on('error', onError))
   .pipe(cleanCSS())
   .pipe(sourcemaps.write('./maps/'))
   .pipe(lineec())
-  .pipe(gulp.dest(scss));
+  .pipe(gulp.dest(scss))
+  .pipe(browserSync.stream());
 }
+
+// .pipe(browserSync.stream());
 
 function javascript() {
   return gulp.src(jsSRC)
-  .pipe(concat( themename + '.js'))
-  .pipe(uglify())
+  .pipe(concat( themename + '.js').on('error', onError))
+  .pipe(uglify().on('error', onError))
   .pipe(lineec())
   .pipe(gulp.dest(jsdist));
 }
@@ -150,14 +170,14 @@ function imgmin() {
         imagemin.gifsicle({interlaced: true}),
         imagemin.jpegtran({progressive: true}),
         imagemin.optipng({optimizationLevel: 5})
-      ]))
+      ]).on('error', onError))
       .pipe( gulp.dest(imgDEST));
 }
 
 function zipPackage (){
 	return gulp.src(zipSRC, {base: "."})
-	.pipe(zip(themeName + '.zip'))
-  	.pipe(gulp.dest(zipDEST));
+    .pipe(zip(themeName + '.zip'))
+    .pipe(gulp.dest(zipDEST));
 }
 
 function watch() {
@@ -165,14 +185,17 @@ function watch() {
     open: 'external',
     proxy: 'http://localhost:8888/wpDev/mydevnw',
     port: 8090,
-	browser: 'google chrome'
+    browser: 'google chrome'
   });
   gulp.watch(styleWatchFiles, gulp.series([css, concatCSS]));
   gulp.watch(jsSRC, javascript);
   gulp.watch(imgSRC, imgmin);
-  gulp.watch([PHPWatchFiles, jsdist + themename + '.js', scss + 'style.min.css']).on('change', browserSync.reload);
+  gulp.watch([PHPWatchFiles, jsdist + themename + '.js']).on('change', reload);
 }
 
+// gulp.watch([PHPWatchFiles, jsdist + themename + '.js', scss + 'style.min.css']).on('change', browserSync.reload);
+// .pipe(browserSync.stream()); is not necessary with new broswers..??
+//
 exports.css = css;
 exports.concatCSS = concatCSS;
 exports.javascript = javascript;

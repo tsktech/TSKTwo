@@ -1,3 +1,6 @@
+// https://youtu.be/utonytGKodc
+// Sticky Navigation Tutorial (Fixed Position CSS + JavaScript / jQuery)
+
 jQuery(document).ready(function() {
 	var navbarOffset = jQuery("nav").offset().top;
 	var wpAdminBar = 0;
