@@ -190,12 +190,13 @@ function watch() {
   gulp.watch(styleWatchFiles, gulp.series([css, concatCSS]));
   gulp.watch(jsSRC, javascript);
   gulp.watch(imgSRC, imgmin);
-  gulp.watch([PHPWatchFiles, jsdist + themename + '.js']).on('change', reload);
+  gulp.watch([PHPWatchFiles, jsdist + themename + '.js', scss + 'style.min.css']).on('change', browserSync.reload);
+
 }
 
 // gulp.watch([PHPWatchFiles, jsdist + themename + '.js', scss + 'style.min.css']).on('change', browserSync.reload);
 // .pipe(browserSync.stream()); is not necessary with new broswers..??
-//
+// gulp.watch([PHPWatchFiles, jsdist + themename + '.js']).on('change', reload);
 exports.css = css;
 exports.concatCSS = concatCSS;
 exports.javascript = javascript;
