@@ -137,6 +137,11 @@ require get_template_directory() . '/inc/widgets.php';
 require get_template_directory() . '/inc/scripts.php';
 
 /**
+ * Google Fonts Enqueue
+ */
+require get_parent_theme_file_path( '/inc/googlefont-scripts.php');
+
+/**
  * NavWalker Class.
  */
 require get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
@@ -145,6 +150,8 @@ require get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
  * Required Plugin activation
  */
 require get_parent_theme_file_path( '/inc/plugin-activation.php' );
+
+
 
 /**
  * Load Jetpack compatibility file.
@@ -159,3 +166,5 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+
