@@ -27,8 +27,8 @@ function tsktwo_fonts_url() {
 		}
 
 		$query_args = array(
-			'family' =&gt; urlencode( implode( '|', $font_families ) ),
-			'subset' =&gt; urlencode( 'latin,latin-ext' ),
+			'family' => urlencode( implode( '|', $font_families ) ),
+			'subset' => urlencode( 'latin,latin-ext' ),
 		);
 
 		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );

@@ -152,7 +152,6 @@ require get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 require get_parent_theme_file_path( '/inc/plugin-activation.php' );
 
 
-
 /**
  * Load Jetpack compatibility file.
  */
