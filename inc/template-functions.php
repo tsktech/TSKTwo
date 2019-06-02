@@ -18,7 +18,8 @@ function tsktwo_body_classes( $classes ) {
 	}
 
 	// Adds a class of no-sidebar when there is no sidebar present.
-	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+	// if ( ! is_active_sidebar( 'sidebar-1 ' ) ) {
+	if ( ! is_active_sidebar( 'right-sidebar') ) {
 		$classes[] = 'no-sidebar';
 	}
 
@@ -35,3 +36,12 @@ function tsktwo_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'tsktwo_pingback_header' );
+
+/**
+ * Responsive Video Embeded code
+ */
+add_filter('embed_oembed_html', 'tsktwo_wrap_embed_with_div', 10, 3);
+
+function tsktwo_wrap_embed_with_div( $html, $url, $attr ) {
+	return "<div class=\"responsive-container\">" . $html . "</div>";
+}
