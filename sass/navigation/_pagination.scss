@@ -33,31 +33,36 @@
 
 .nav-previous {
     float: left;
-    padding-left: 25px;
+    padding-left: 0;
     padding-right: 25px;
     a:before {
         content: "\f04a";  /* this is your text. You can also use UTF-8 character codes as I do here */
         font-family: "Font Awesome 5 Free";
-        left:-1px;
-        position:absolute;
+        left:-10px;
+        position:relative;
         top:0;
     }
 }
 
 .nav-next {
     float: right;
-    padding-right: 25px;
-    text-align: right;
     padding-left: 25px;
+    padding-right: 0px;
+    text-align: right;
 
     a:after {
         content: "\f04e";  /* this is your text. You can also use UTF-8 character codes as I do here */
         font-family: "Font Awesome 5 Free";
-        right:-1px;
-        position:absolute;
+        right:-10px;
+        position:relative;
         top:0;
     }
 }
+/*a[rel="prev"] { }
+a[rel="next"] {
+        btn btn-primary ;
+    }*/
+
 
 /*.nav-previous:before,
 .nav-previoust:after {

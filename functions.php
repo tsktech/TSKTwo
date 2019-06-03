@@ -144,7 +144,23 @@ require get_parent_theme_file_path( '/inc/googlefont-scripts.php');
 /**
  * Bootstrap Pagination
  */
-// require get_parent_theme_file_path( '/inc/bspagination.php');
+require get_parent_theme_file_path( '/inc/bspagination.php');
+
+/*function tsktwo_posts_link_attributes() {
+    return 'class="btn btn-primary"';
+}
+add_filter('next_posts_link_attributes', 'tsktwo_posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'tsktwo_posts_link_attributes');
+
+
+add_filter('next_post_link', 'tsktwo_post_link_attributes');
+add_filter('previous_post_link', 'tsktwo_post_link_attributes');
+
+function tsktwo_post_link_attributes($output) {
+    $code = 'class="btn btn-primary"';
+    return str_replace('<a href=', '<a '.$code.' href=', $output);
+}*/
+
 /**
  * NavWalker Class.
  */

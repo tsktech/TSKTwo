@@ -1,63 +1,57 @@
 <?php
-/*
-*@title: Bootstrap Pagination for WordPress
-*@link: http://extracatchy.net/bootstrap-pagination-wordpress/
-*/
+/**
+ * Bootstrap Pagination
+ */
 
-function page_navigation($before = '', $after = '') {
-	global $wpdb, $wp_query;
-	$request = $wp_query->request;
-	$posts_per_page = intval(get_query_var('posts_per_page'));
-	$paged = intval(get_query_var('paged'));
-	$numposts = $wp_query->found_posts;
-	$max_page = $wp_query->max_num_pages;
-	if ( $numposts <= $posts_per_page ) { return; }
-	if(empty($paged) || $paged == 0) {
-		$paged = 1;
+function getlinkColor() {
+	$linkColor = get_theme_mod( 'link_color' );
+	// var_dump($linkColor);
+	switch ($linkColor) {
+	    case '#6B757D':
+	        $btnColor = 'btn-secondary';
+	        break;
+	    case '#29A645':
+	        $btnColor = 'btn-success';
+	        break;
+	    case '#DC3545':
+	        $btnColor = 'btn-danger';
+	        break;
+	    case '#FEC105':
+	        $btnColor = 'btn-warning';
+	        break;
+	    case '#17A2B8':
+	        $btnColor = 'btn-info';
+	        break;
+	    case '#F8F9FA':
+	        $btnColor = 'btn-light';
+	        break;
+	    case '#343A40':
+	        $btnColor = 'btn-dark';
+	        break;
+	    default:
+	        $btnColor = 'btn-primary';
 	}
-	$pages_to_show = 7;
-	$pages_to_show_minus_1 = $pages_to_show-1;
-	$half_page_start = floor($pages_to_show_minus_1/2);
-	$half_page_end = ceil($pages_to_show_minus_1/2);
-	$start_page = $paged - $half_page_start;
-	if($start_page <= 0) {
-		$start_page = 1;
-	}
-	$end_page = $paged + $half_page_end;
-	if(($end_page - $start_page) != $pages_to_show_minus_1) {
-		$end_page = $start_page + $pages_to_show_minus_1;
-	}
-	if($end_page > $max_page) {
-		$start_page = $max_page - $pages_to_show_minus_1;
-		$end_page = $max_page;
-	}
-	if($start_page <= 0) {
-		$start_page = 1;
-	}
+    //var_dump($btnColor);
+    return $btnColor;
 
-	echo $before.'<div class="pagination"><ul class="clearfix">'."";
-	if ($paged > 1) {
-		$first_page_text = "«";
-		echo '<li class="prev"><a href="'.get_pagenum_link().'" title="First">'.$first_page_text.'</a></li>';
-	}
+}
 
-	$prevposts = get_previous_posts_link('← Previous');
-	if($prevposts) { echo '<li>' . $prevposts  . '</li>'; }
-	else { echo '<li class="disabled"><a href="#">← Previous</a></li>'; }
+function tsktwo_posts_link_attributes() {
+	$var = 'class="btn ' . getlinkColor() . '"';
+    return $var;
+}
+add_filter('next_posts_link_attributes', 'tsktwo_posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'tsktwo_posts_link_attributes');
 
-	for($i = $start_page; $i  <= $end_page; $i++) {
-		if($i == $paged) {
-			echo '<li class="active"><a href="#">'.$i.'</a></li>';
-		} else {
-			echo '<li><a href="'.get_pagenum_link($i).'">'.$i.'</a></li>';
-		}
-	}
-	echo '<li class="">';
-	next_posts_link('Next →');
-	echo '</li>';
-	if ($end_page < $max_page) {
-		$last_page_text = "»";
-		echo '<li class="next"><a href="'.get_pagenum_link($max_page).'" title="Last">'.$last_page_text.'</a></li>';
-	}
-	echo '</ul></div>'.$after."";
+
+// instead of below php the css was added via jquery
+// $("a[rel=next]").addClass("btn btn-primary");
+//  	$("a[rel=prev]").addClass("btn btn-primary");
+
+add_filter('next_post_link', 'tsktwo_post_link_attributes');
+add_filter('previous_post_link', 'tsktwo_post_link_attributes');
+
+function tsktwo_post_link_attributes($output) {
+    $code = 'class="btn ' . getlinkColor() . '"';
+    return str_replace('<a href=', '<a '.$code.' href=', $output);
 }
