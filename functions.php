@@ -142,6 +142,10 @@ require get_template_directory() . '/inc/scripts.php';
 require get_parent_theme_file_path( '/inc/googlefont-scripts.php');
 
 /**
+ * Bootstrap Pagination
+ */
+// require get_parent_theme_file_path( '/inc/bspagination.php');
+/**
  * NavWalker Class.
  */
 require get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';

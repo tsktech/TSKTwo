@@ -39,6 +39,7 @@ var jsSRC = [
     js + 'bootstrap-hover-two.js',
     js + 'nav-scroll.js',
     js + 'tsk-stickynav.js',
+    js + 'tsk-pagination.js',
     js + 'prism.js',
     js + 'skip-link-focus-fix.js'
 ];
@@ -69,7 +70,7 @@ var cssSRC =  [
   // root + 'src/css/bootstrap.css',
   // nodeDir + material-design-lite/material.min.css
   root + 'fonts/font-awesome/css/all.css',
-  // root + 'src/css/prism.css',
+  root + 'src/css/prism.css',
   root + 'style.css'
 ];
 

@@ -49,3 +49,16 @@
     }
   }
 }
+
+@mixin tsk_links() {
+	a {
+	    color: #ffffff;
+	    text-decoration: none !important;
+	    background-color: transparent;
+	    &:hover {
+			color: #c6c6c6; /*#eeeeee;*/
+	    }
+	    margin-right: 5px;
+	    /*font-weight: 700;*/
+	}
+}
