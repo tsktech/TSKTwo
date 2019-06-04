@@ -146,6 +146,11 @@ require get_parent_theme_file_path( '/inc/googlefont-scripts.php');
  */
 require get_parent_theme_file_path( '/inc/bspagination.php');
 
+/**
+ * BreadCrumbs Pagination
+ */
+require_once get_parent_theme_file_path('/inc/bsbreadcrumb.php');
+
 /*function tsktwo_posts_link_attributes() {
     return 'class="btn btn-primary"';
 }

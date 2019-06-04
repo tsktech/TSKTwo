@@ -44,7 +44,11 @@
 					get_template_part('header/header', 'four');
 				}
 		?>
-
-	</div><!-- .container-fluid -->
+	<?php if(!is_front_page() && function_exists('get_breadcrumb')) : ?>
+		<!-- if (function_exists( -->
+		<div class="breadcrumb-wrapper mb-3 container-fluid">
+			<?php get_breadcrumb(); ?>
+		</div><!-- .breadcrumb-wrapper .container-fluid  -->
+	<?php endif; ?>
 	<div id="content" class="site-content container">
 		<div class="row">

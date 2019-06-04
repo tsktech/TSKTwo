@@ -2,8 +2,34 @@
     font-size: 1.125rem; /*18px;*/
 }
 
-.nav-links {
-    background-color: #007bff;
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+    .site-main & {
+        margin: 0 0 1.5em;
+        overflow: hidden;
+
+    }
+
+    .nav-previous {
+        float: left;
+        width: 50%;
+        white-space:normal;
+/*        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;*/
+    }
+
+    .nav-next {
+        float: right;
+        text-align: right;
+        width: 50%;
+        white-space:normal;
+/*        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;*/
+    }
 }
 
 .nav-previous, .nav-next {
@@ -28,7 +54,9 @@
         font-weight: 700;
         border-radius: 5px;
     }
-
+    /*overflow: hidden;*/
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .nav-previous {
