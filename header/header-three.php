@@ -137,7 +137,7 @@
         </div><!-- .container   -->
     </div><!-- nav #secondary -->
 
-    <div class="navbar-placeholder">
+    <div class="navbar-placeholder-tsk">
         <nav id="menu" class="navbar navbar-expand-lg <?php echo $navbarColor . " "; echo $navbarBackground;?>" role="navigation" >
             <div class="container">
                 <!-- <?php the_custom_logo(); ?> -->
