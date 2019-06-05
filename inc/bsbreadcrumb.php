@@ -24,8 +24,9 @@ function get_breadcrumb() {
             </div>
         </div>';*/
     global $wp;
-
+    // var_dump(is_author());
     if (!is_home()) {
+        // var_dump(is_author());
         echo '<div class="container">
                 <div class="row">
                     <div class="btn-group btn-breadcrumb">';
@@ -40,6 +41,7 @@ function get_breadcrumb() {
             $categories = get_the_category();
             //var_dump($categories);
             //var_dump($categories[$catCount-1]->name);
+            // var_dump(get_the_author_meta('display_name'));
             // $displayCat = 0;
             // var_dump($catCount);
             if ($catCount > 5) {
@@ -65,23 +67,37 @@ function get_breadcrumb() {
             echo '">';
             echo the_title();
             echo '</a></span>';
+        } elseif (is_tag()) {
+            echo '<span class="btn btn-default"><a href="#">';
+            single_tag_title(__( 'Currently Browsing Tags "', 'tsktwo' ));
+            echo '"</a></span>';
+        } elseif (is_day()) {
+            echo '<span class="btn btn-default"><a href="#">Archive for ';
+            the_time('F jS, Y');
+            echo '</a></span>';
+        } elseif (is_month()) {
+            echo '<span class="btn btn-default"><a href="#">Archive for ';
+            the_time('F, Y');
+            echo '</a></span>';
+        } elseif (is_year()) {
+            echo '<span class="btn btn-default"><a href="#">Archive for ';
+            the_time('Y');
+            echo '</a></span>';
+        } elseif (is_author()) {
+            echo '<span class="btn btn-default"><a href="#">This is Archive of ';;
+            echo strtoupper(get_the_author_meta('display_name'));
+            echo '</a></span>';
+        } elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {
+            echo '<span class="btn btn-default"><a href="#">Blog Archives';
+            echo '</a></span>';
+        } elseif (is_search()) {
+            echo '<span class="btn btn-default"><a href="#">Search Results';
+            echo '</a></span>';
         }
-
         echo '      </div><!-- .btn-group .btn-breadcrumb -->
                 </div><!-- .row -->
              </div><!-- .container -->';
     }
-    elseif (is_tag()) {single_tag_title();}
-    elseif (is_day()) {echo '<span class="btn btn-default">Archive for '; the_time('F jS, Y'); echo'</span>';}
-
-
-
-    elseif (is_month()) {echo"<li class='breadcrumb-item'>Archive for "; the_time('F, Y'); echo'</li>';}
-    elseif (is_year()) {echo"<li class='breadcrumb-item'>Archive for "; the_time('Y'); echo'</li>';}
-    elseif (is_author()) {echo"<li class='breadcrumb-item'>Author Archive"; echo'</li>';}
-    elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {echo "<li>Blog Archives"; echo'</li>';}
-    elseif (is_search()) {echo"<li class='breadcrumb-item'>Search Results"; echo'</li>';}
-
 }
 
 /*<li><a href="#">Camper Vans</a></li>
