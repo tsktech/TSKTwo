@@ -23,7 +23,7 @@ jQuery(document).ready(function() {
 			// console.log(wpAdminBar.height());
 			// console.log(navbarOffset + 32);
 	}*/
-	//
+	// .navbar-placeholder is required only for header-four.php
 	jQuery(".navbar-placeholder").height(jQuery("nav").outerHeight());
 	jQuery(window).scroll(function(){
 		var scrollPos = jQuery(window).scrollTop();

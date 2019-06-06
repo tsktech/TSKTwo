@@ -112,7 +112,7 @@
     <!-- </div> .row
     <div class="row"> -->
 
-    <div class="navbar-placeholder-tsk">
+    <div class="tsk-navbar-placeholder">
         <nav id="menu" class="navbar navbar-expand-lg<?php echo $navbarSticky; echo " " . $navbarColor . " "; echo $navbarBackground;?>" role="navigation" >
             <div class="container">
                 <!-- <?php the_custom_logo(); ?> -->
